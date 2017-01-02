@@ -1,0 +1,12 @@
+html,body {
+    height:100%; 
+    width:100%;
+}
+
+body {
+    background-color: #85c3e9;
+    color:white;
+    background-position: 110% 20px;
+    background-size: auto 94%;
+    background-repeat: no-repeat;
+}

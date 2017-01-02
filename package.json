@@ -1,0 +1,24 @@
+{
+  "name": "electron-playground",
+  "description": "electron-playground",
+  "version": "1.0.0",
+  "author": {
+    "name": "Brady",
+    "email": "brady.holt@gmail.com",
+    "url": "https://www.geekytidbits.com/"
+  },
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/.bin/electron .",
+    "pack": "rm -rf ./dist && yarn run pack:osx && yarn run pack:win",
+    "pack:osx": "./node_modules/.bin/electron-packager . --platform=darwin --icon=./packaging/icon.icns --overwrite --ignore=./.vscode --ignore=./packaging --out=./dist && mkdir ./dist/osx && cd ./dist/electron-playground-darwin-x64 && zip -r ../osx/electron-playground.zip ./electron-playground.app && cd ../ && rm -rf ./electron-playground-darwin-x64",
+    "pack:win": "./node_modules/.bin/electron-packager . --platform=win32 --icon=./packaging/icon.ico --overwrite --ignore=./.vscode --ignore=./packaging --out=./dist --asar=true --version-string.ProductName='electron-playground' && mkdir ./dist/win && node ./packaging/generate-windows-installer.js && cd ./dist/win-installer && zip -r ../win/electron-playground.zip ./electron-playground.exe && cd ../ && rm -rf ./win-installer && rm -rf ./electron-playground-win32-x64"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "electron": "^1.4.13",
+    "electron-packager": "^8.4.0",
+    "electron-winstaller": "^2.5.1"
+  }
+}
