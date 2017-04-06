@@ -1,6 +1,6 @@
 # electron-playground
 
-A playground for learning Electron.
+A playground for learning Electron
 
 
 ## Scripts
