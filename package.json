@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "start": "./node_modules/.bin/electron .",
-    "pack": "rm -rf ./dist && yarn run pack:osx && yarn run pack:win",
+    "pack": "rm -rf ./dist && npm run pack:osx && npm run pack:win",
     "pack:osx": "./node_modules/.bin/electron-packager . --platform=darwin --icon=./packaging/icon.icns --overwrite --ignore=./.vscode --ignore=./packaging --out=./dist && mkdir ./dist/osx && cd ./dist/electron-playground-darwin-x64 && zip -r ../osx/electron-playground.zip ./electron-playground.app && cd ../ && rm -rf ./electron-playground-darwin-x64",
     "pack:win": "./node_modules/.bin/electron-packager . --platform=win32 --icon=./packaging/icon.ico --overwrite --ignore=./.vscode --ignore=./packaging --out=./dist --asar=true --version-string.ProductName='electron-playground' && mkdir ./dist/win && node ./packaging/generate-windows-installer.js && cd ./dist/win-installer && zip -r ../win/electron-playground.zip ./electron-playground.exe && cd ../ && rm -rf ./win-installer && rm -rf ./electron-playground-win32-x64"
   },
